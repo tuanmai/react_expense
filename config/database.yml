@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  <<: *default
+  database: react_expense_development
+
+test:
+  <<: *default
+  database: react_expense_test
+
+production:
+  <<: *default
+  database: react_expense_production
+  username: react_expense
+  password: <%= ENV['REACT_EXPENSE_DATABASE_PASSWORD'] %>
